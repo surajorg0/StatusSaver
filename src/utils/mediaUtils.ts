@@ -12,11 +12,13 @@ export type StatusMedia = {
     id: string;
     name: string;
     uri: string;
+    thumbnail?: string;
     originalUri: string;
     size: number;
     lastModified: number;
     type: 'image/jpeg' | 'image/png' | 'image/gif' | 'video/mp4' | string;
     isCached: boolean;
+    appType: 'wa' | 'wab';
 };
 
 const CACHE_DIR = 'status-cache';
@@ -33,38 +35,54 @@ export const initializeCache = async () => {
     }
 };
 
-export const fetchStatuses = async (): Promise<StatusMedia[]> => {
+export const fetchStatuses = async (appType: 'wa' | 'wab' = 'wa'): Promise<StatusMedia[]> => {
     try {
-        const { files } = await Saf.listStatuses();
+        const { files } = await Saf.listStatuses({ type: appType });
         return Promise.all(
             files.map(async (f) => {
                 let displayUri = f.uri;
+                let thumbnail: string | undefined;
                 try {
-                    // Copy to cache using our native method (very fast, handles content:// URIs safely)
-                    const { path } = await Saf.copyToCache({ uri: f.uri, name: f.name });
-                    // Convert native absolute path to a URL the WebView can render (e.g. http://localhost/_capacitor_file_...)
+                    // Copy to cache using our native method
+                    const res = await Saf.copyToCache({ uri: f.uri, name: f.name });
+
                     if (window.Ionic) {
-                        displayUri = window.Ionic.WebView.convertFileSrc("file://" + path);
+                        displayUri = window.Ionic.WebView.convertFileSrc("file://" + res.path);
+                        if (res.thumbnail) {
+                            thumbnail = window.Ionic.WebView.convertFileSrc("file://" + res.thumbnail);
+                        }
                     }
                 } catch (err) {
                     console.error('Failed to copy to cache', f.name, err);
                 }
 
                 return {
-                    id: f.name,
+                    id: `${appType}_${f.name}`,
                     name: f.name,
-                    uri: displayUri, // Now returning the safe WebView URL instead of content:// URI
+                    uri: displayUri,
+                    thumbnail,
                     originalUri: f.uri,
                     size: f.size,
                     lastModified: f.lastModified,
                     type: f.type,
                     isCached: true,
+                    appType
                 };
             })
         );
     } catch (err) {
-        console.error(err);
-        throw err;
+        return [];
+    }
+};
+
+export const shareStatus = async (status: StatusMedia) => {
+    try {
+        // We need the raw native path. We can strip the webview prefix or store it.
+        // For now, let's just use the cached path logic.
+        const res = await Saf.copyToCache({ uri: status.originalUri, name: status.name });
+        await Saf.shareFile({ path: res.path, type: status.type });
+    } catch (err) {
+        console.error('Share failed', err);
     }
 };
 
@@ -112,6 +130,7 @@ export const getCachedStatuses = async (): Promise<StatusMedia[]> => {
                     lastModified: stat.mtime,
                     type,
                     isCached: true,
+                    appType: 'wa' // Default for cached
                 });
             }
         }

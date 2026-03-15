@@ -1,24 +1,10 @@
-import { Redirect, Route } from 'react-router-dom';
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-  setupIonicReact
-} from '@ionic/react';
+import { IonApp, setupIonicReact, IonAlert } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { images, videocam, bookmark, settings } from 'ionicons/icons';
-import Home from './pages/Home';
-import Videos from './pages/Videos';
-import Saved from './pages/Saved';
-import Settings from './pages/Settings';
 import { App as CapacitorApp } from '@capacitor/app';
 import { useState, useEffect } from 'react';
-import { IonAlert } from '@ionic/react';
 import { initializeTheme } from './utils/theme';
+import TabsContainer from './components/TabsContainer';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 setupIonicReact({
   mode: 'md',
@@ -33,12 +19,13 @@ const App: React.FC = () => {
     const handleBackButton = (ev: any) => {
       ev.detail.register(10, (_processNextHandler: () => void) => {
         const currentPath = window.location.pathname;
-        // Check if any modal or alert is open first? Ionic usually handles this at priority 100
-        if (currentPath === '/images' || currentPath === '' || currentPath === '/') {
+        // Since we are using TabsContainer as a single page now, 
+        // we might need to handle internal tab state if we want to go back to tab 0.
+        // For now, if on home or roots, exit.
+        if (currentPath === '/' || currentPath === '/tabs') {
           setShowExitConfirm(true);
         } else {
-          // If on other tabs, go back to home tab
-          window.location.href = '/images';
+          window.location.href = '/';
         }
       });
     };
@@ -53,44 +40,14 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route exact path="/images">
-              <Home />
-            </Route>
-            <Route exact path="/videos">
-              <Videos />
-            </Route>
-            <Route exact path="/saved">
-              <Saved />
-            </Route>
-            <Route exact path="/settings">
-              <Settings />
-            </Route>
-            <Route exact path="/">
-              <Redirect to="/images" />
-            </Route>
-          </IonRouterOutlet>
-
-          <IonTabBar slot="bottom" className="dark:bg-gray-900 border-t dark:border-gray-800">
-            <IonTabButton tab="images" href="/images" className="dark:text-gray-400">
-              <IonIcon aria-hidden="true" icon={images} />
-              <IonLabel>Images</IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="videos" href="/videos" className="dark:text-gray-400">
-              <IonIcon aria-hidden="true" icon={videocam} />
-              <IonLabel>Videos</IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="saved" href="/saved" className="dark:text-gray-400">
-              <IonIcon aria-hidden="true" icon={bookmark} />
-              <IonLabel>Saved (7 days)</IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="settings" href="/settings" className="dark:text-gray-400">
-              <IonIcon aria-hidden="true" icon={settings} />
-              <IonLabel>Settings</IonLabel>
-            </IonTabButton>
-          </IonTabBar>
-        </IonTabs>
+        <Switch>
+          <Route exact path="/">
+            <TabsContainer />
+          </Route>
+          <Route path="*">
+            <Redirect to="/" />
+          </Route>
+        </Switch>
       </IonReactRouter>
 
       <IonAlert

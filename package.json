@@ -19,13 +19,16 @@
     "@ionic/react-router": "^8.8.1",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
+    "ionic-selectable": "^5.0.3",
     "ionicons": "^8.0.13",
     "lucide-react": "^0.577.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "^5.3.4",
-    "react-router-dom": "^5.3.4"
+    "react-router-dom": "^5.3.4",
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
     "@capacitor/cli": "^8.2.0",

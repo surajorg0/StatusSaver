@@ -4,13 +4,17 @@ A premium, modern Android utility app built with React, Ionic, and Capacitor. St
 
 ## ✨ Features
 
+- **Dual WhatsApp Support**: Automatically detects and merges statuses from both WhatsApp and WhatsApp Business.
+- **Swipeable Navigation**: Silky-smooth swipe gestures to switch between all tabs (Images, Videos, Direct Chat, etc.).
+- **Direct Chat Utility**: Send WhatsApp messages to any number without saving it to your contacts.
+- **Video Thumbnails**: High-quality, native-generated thumbnails for video statuses.
+- **Bulk Save & Multi-Select**: Professional long-press to select and save multiple statuses in one go.
+- **Native Sharing**: Share statuses directly to other apps without filling up your local gallery.
+- **Premium Preview Mode**: Clean, glassmorphism-inspired full-screen preview with easy-to-reach controls.
 - **7-Day Auto-Archiving**: Statuses you view are automatically cached and kept for up to 7 days, even after they disappear from WhatsApp.
-- **High-Performance Media Handling**: Custom native Java plugin using Android's Storage Access Framework (SAF) for lightning-fast file access without excessive memory usage.
-- **Smart Back-Button Navigation**: Intuitive navigation with exit confirmation on the home screen to prevent accidental app closure.
-- **Premium Dark Mode**: Beautiful, system-integrated dark theme for a comfortable viewing experience at night.
-- **Instant Gallery Save**: One-tap saving for both images and videos directly to the `DCIM/StatusSaver` folder.
-- **Built-in Media Player**: Full-screen preview for images and high-definition video playback.
-- **Bilingual Support**: Permission explanations provided in both English and Hindi.
+- **High-Performance Media Handling**: Custom native Java plugin using Android's Storage Access Framework (SAF) for lightning-fast file access.
+- **Smart Back-Button Navigation**: Intuitive navigation with exit confirmation on the home screen.
+- **Premium Dark Mode**: Beautiful, system-integrated dark theme.
 
 ## 🛠️ Tech Stack
 
