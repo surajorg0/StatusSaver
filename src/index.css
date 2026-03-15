@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* Core CSS required for Ionic components to work properly */
+@import '@ionic/react/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@import '@ionic/react/css/normalize.css';
+@import '@ionic/react/css/structure.css';
+@import '@ionic/react/css/typography.css';
+
+/* Optional CSS utils */
+@import '@ionic/react/css/padding.css';
+@import '@ionic/react/css/float-elements.css';
+@import '@ionic/react/css/text-alignment.css';
+@import '@ionic/react/css/text-transformation.css';
+@import '@ionic/react/css/flex-utils.css';
+@import '@ionic/react/css/display.css';
+
+:root {
+  --ion-color-primary: #10b981;
+  --ion-color-primary-rgb: 16,185,129;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #0e976a;
+  --ion-color-primary-tint: #2abf8e;
+}
+
+html.dark {
+  color-scheme: dark;
+  --ion-color-step-50: #1e1e1e;
+  --ion-color-step-100: #2a2a2a;
+  --ion-color-step-150: #363636;
+  --ion-color-step-200: #414141;
+  --ion-background-color: #121212;
+  --ion-text-color: #ffffff;
+  --ion-toolbar-background: #1f1f1f;
+  --ion-item-background: #1f1f1f;
+}
+
+body {
+  @apply bg-gray-50 dark:bg-[#121212] text-gray-900 dark:text-white;
+}

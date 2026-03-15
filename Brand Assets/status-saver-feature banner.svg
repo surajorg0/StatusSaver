@@ -1,0 +1,87 @@
+<svg id="feature-graphic" viewBox="0 0 1024 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+      <!-- BG -->
+      <rect width="1024" height="500" fill="#071E18"/>
+      <circle cx="780" cy="250" r="340" fill="#0B3328" opacity="0.9"/>
+      <circle cx="780" cy="250" r="230" fill="#0D4A37" opacity="0.7"/>
+      <!-- Floating dots -->
+      <circle cx="560" cy="88" r="7" fill="#FF6B8A" opacity="0.7"/>
+      <circle cx="920" cy="400" r="5" fill="#FFB347" opacity="0.6"/>
+      <circle cx="615" cy="420" r="9" fill="#4ECDC4" opacity="0.45"/>
+      <circle cx="950" cy="110" r="6" fill="#C084FC" opacity="0.7"/>
+      <circle cx="530" cy="340" r="4" fill="#60A5FA" opacity="0.6"/>
+
+      <!-- Left: mini icon + text -->
+      <!-- Mini icon -->
+      <rect x="60" y="72" width="58" height="58" rx="14" fill="#0B5E49"/>
+      <!-- mini ring: r=22, circ≈138; arc≈24.5 gap≈113.5 -->
+      <circle cx="89" cy="101" r="22" fill="none" stroke="#FF6B8A" stroke-width="3.5" stroke-dasharray="24.5 114" stroke-linecap="round" transform="rotate(-90,89,101)"/>
+      <circle cx="89" cy="101" r="22" fill="none" stroke="#FFB347" stroke-width="3.5" stroke-dasharray="24.5 114" stroke-linecap="round" transform="rotate(-18,89,101)"/>
+      <circle cx="89" cy="101" r="22" fill="none" stroke="#4ECDC4" stroke-width="3.5" stroke-dasharray="24.5 114" stroke-linecap="round" transform="rotate(54,89,101)"/>
+      <circle cx="89" cy="101" r="22" fill="none" stroke="#C084FC" stroke-width="3.5" stroke-dasharray="24.5 114" stroke-linecap="round" transform="rotate(126,89,101)"/>
+      <circle cx="89" cy="101" r="22" fill="none" stroke="#60A5FA" stroke-width="3.5" stroke-dasharray="24.5 114" stroke-linecap="round" transform="rotate(198,89,101)"/>
+
+      <!-- App name -->
+      <text x="60" y="192" fill="white" font-family="sans-serif" font-size="62" font-weight="800" letter-spacing="-2">Status</text>
+      <text x="60" y="264" fill="#25D366" font-family="sans-serif" font-size="62" font-weight="800" letter-spacing="-2">Saver</text>
+      <!-- Tagline -->
+      <text x="60" y="308" fill="#9FE1CB" font-family="sans-serif" font-size="19">Save statuses before they disappear</text>
+
+      <!-- Feature pills -->
+      <rect x="60" y="334" width="150" height="34" rx="17" fill="#0D6E56"/>
+      <text x="135" y="356" fill="#9FE1CB" font-family="sans-serif" font-size="13" text-anchor="middle">Photos &amp; Videos</text>
+      <rect x="222" y="334" width="110" height="34" rx="17" fill="#0D6E56"/>
+      <text x="277" y="356" fill="#9FE1CB" font-family="sans-serif" font-size="13" text-anchor="middle">One Tap Save</text>
+      <rect x="344" y="334" width="100" height="34" rx="17" fill="#0D6E56"/>
+      <text x="394" y="356" fill="#9FE1CB" font-family="sans-serif" font-size="13" text-anchor="middle">Auto Backup</text>
+
+      <!-- Background phone (slightly behind) -->
+      <rect x="582" y="90" width="190" height="360" rx="28" fill="#0F2E28" opacity="0.75"/>
+      <rect x="592" y="102" width="170" height="336" rx="20" fill="#081A15" opacity="0.9"/>
+      <!-- Screen content on bg phone -->
+      <rect x="592" y="102" width="170" height="220" rx="20" fill="#1A5E46"/>
+      <circle cx="628" cy="130" r="16" fill="#4ECDC4" opacity="0.8"/>
+      <rect x="650" y="122" width="60" height="8" rx="4" fill="white" opacity="0.5"/>
+      <rect x="650" y="134" width="40" height="6" rx="3" fill="white" opacity="0.3"/>
+      <ellipse cx="677" cy="195" rx="30" ry="30" fill="#FFB347" opacity="0.85"/>
+      <rect x="592" y="270" width="170" height="52" rx="0" fill="black" opacity="0.45"/>
+      <rect x="620" y="280" width="114" height="30" rx="15" fill="#25D366"/>
+      <text x="677" y="300" fill="white" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="middle">Save</text>
+
+      <!-- Main phone (front) -->
+      <rect x="670" y="40" width="210" height="420" rx="32" fill="#162C26"/>
+      <rect x="680" y="54" width="190" height="394" rx="22" fill="#0C1F1A"/>
+      <!-- Screen content -->
+      <rect x="680" y="54" width="190" height="290" rx="22" fill="#1D5E46"/>
+      <!-- Status bars at top -->
+      <rect x="688" y="62" width="44" height="5" rx="2.5" fill="white" opacity="0.85"/>
+      <rect x="738" y="62" width="44" height="5" rx="2.5" fill="white" opacity="0.45"/>
+      <rect x="788" y="62" width="44" height="5" rx="2.5" fill="white" opacity="0.25"/>
+      <rect x="838" y="62" width="20" height="5" rx="2.5" fill="white" opacity="0.15"/>
+      <!-- Profile -->
+      <circle cx="702" cy="90" r="15" fill="#FF6B8A"/>
+      <text x="722" y="86" fill="white" font-family="sans-serif" font-size="12" font-weight="600">Sneha</text>
+      <text x="722" y="100" fill="white" font-family="sans-serif" font-size="10" opacity="0.65">1 hour ago</text>
+      <!-- Photo area (simulated landscape status) -->
+      <rect x="680" y="110" width="190" height="190" fill="#1A6B50"/>
+      <ellipse cx="775" cy="148" rx="32" ry="32" fill="#FFD93D" opacity="0.9"/>
+      <rect x="680" y="215" width="190" height="85" fill="#1D8A60" opacity="0.8"/>
+      <path d="M680,230 Q720,200 775,230 Q820,260 870,230 L870,300 L680,300Z" fill="#175C42" opacity="0.9"/>
+      <!-- Download overlay -->
+      <rect x="680" y="296" width="190" height="48" rx="0" fill="black" opacity="0.55"/>
+      <rect x="720" y="306" width="110" height="28" rx="14" fill="#25D366"/>
+      <text x="775" y="325" fill="white" font-family="sans-serif" font-size="13" font-weight="700" text-anchor="middle">Save Status</text>
+      <!-- Bottom of screen -->
+      <rect x="680" y="400" width="190" height="48" rx="0" fill="#0C1F1A"/>
+      <rect x="740" y="416" width="70" height="5" rx="2.5" fill="white" opacity="0.25"/>
+      <!-- Notch -->
+      <rect x="740" y="40" width="70" height="18" rx="9" fill="#0D1F18"/>
+      <!-- Phone buttons -->
+      <rect x="658" y="140" width="7" height="44" rx="3.5" fill="#0F2820"/>
+      <rect x="658" y="194" width="7" height="44" rx="3.5" fill="#0F2820"/>
+      <rect x="881" y="158" width="7" height="60" rx="3.5" fill="#0F2820"/>
+
+      <!-- Save badge floating -->
+      <circle cx="636" cy="220" r="30" fill="#1A8F5C"/>
+      <circle cx="636" cy="220" r="25" fill="#25D366"/>
+      <polyline points="622,220 632,231 651,209" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
